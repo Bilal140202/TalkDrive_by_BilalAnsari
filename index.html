@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TalkDrive — AI Talking Head Runner</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: #f9f9f9;
+        }
+        .container {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c5364;
+            text-align: center;
+        }
+        .description {
+            font-size: 1.1rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .badge {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+            font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TalkDrive — AI Talking Head Runner</h1>
+
+        <div class="badge">
+            <a href="https://colab.research.google.com/github/Bilal140202/TalkDrive_by_BilalAnsari/blob/main/notebooks/TalkDrive_by_BilalAnsari.ipynb" target="_parent">
+                <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+            </a>
+        </div>
+
+        <p class="description">
+            Colab runner for <strong>SoulX FlashHead 1.3B</strong>.<br>
+            Turn any portrait photo into a talking-head video from audio, with face-crop fix and 16:9 compositing.
+        </p>
+
+        <h2>Architecture Overview</h2>
+        <pre><code>Portrait photo  ──►┐
+                   │  SoulX FlashHead 1.3B (DiT + Wav2Vec2)  ──► 512×512 clip
+Audio / speech  ──►┘
+                                           │
+                                  16:9 Compositor
+                                           │
+                              Final video (original resolution)</code></pre>
+
+        <div class="footer">
+            <p>By Bilal Ansari</p>
+        </div>
+    </div>
+</body>
+</html>

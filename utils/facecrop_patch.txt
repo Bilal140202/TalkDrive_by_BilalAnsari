@@ -1,0 +1,18 @@
+# This is a record of the patch applied to facecrop.py in the Colab notebook.
+# The original file is at flash_head/utils/facecrop.py.
+
+# 1. Add imports and module-level sentinel variable
+import os
+import json
+
+_LAST_CROP_BBOX = None  # populated during inference, read by compositor
+
+# 2. After the face crop, persist exact bbox + image dims to a temp JSON file
+    global _LAST_CROP_BBOX
+    _LAST_CROP_BBOX = scaled_bbox + [img_w, img_h]
+    try:
+        with open("/tmp/_talkdrive_crop_bbox.json", "w") as _bbox_file:
+            json.dump({"bbox": scaled_bbox, "img_w": img_w, "img_h": img_h}, _bbox_file)
+    except Exception:
+        pass  # non-fatal; compositor will skip if file absent
+    crop_face = face_image.crop(scaled_bbox)
